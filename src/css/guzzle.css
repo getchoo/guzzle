@@ -3,8 +3,15 @@ body {
 	font-family: monospace;
 }
 
-.content p,li {
+.content p,
+li {
 	font-size: large;
+}
+
+.gifs {
+	width: 33%;
+	clear: both;
+	text-align: center;
 }
 
 #vidya {
