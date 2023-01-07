@@ -1,13 +1,13 @@
 body {
-  background-color: tan;
-  font-family: monospace;
+	background-color: tan;
+	font-family: monospace;
 }
 
 .content p,li {
-  font-size: large;
+	font-size: large;
 }
 
 #vidya {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
