@@ -1,4 +1,6 @@
 * text eol=lf
-*.mp4 -text
-*.gif -text
-*.webp -text
+*.mp4 binary
+*.gif binary
+*.webp binary
+*.jpg binary
+*.png binary
