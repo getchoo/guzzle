@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:z
-      - ./caddy/data:/data
+      - ./caddy/data:/data:z
       - ./src/:/var/www:z
     depends_on: api
   api:
