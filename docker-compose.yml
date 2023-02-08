@@ -1,0 +1,36 @@
+# docker
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+    driver: bridge
+
+services:
+  website:
+    image: caddy:alpine
+    container_name: guzzle
+    environment:
+      API_HOST: "guzzle_api"
+      CADDY_ROOT: "/var/www"
+      DOMAIN: "guzzle.gay"
+    networks:
+      - web
+      - internal
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    restart: unless-stopped
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:z
+      - ./caddy/data:/data
+      - ./src/:/var/www:z
+    depends_on: api
+  api:
+    build:
+    context: ./guzzle_api
+    dockerfile: Dockerfile
+    container_name: guzzle_api
+    networks:
+      - internal

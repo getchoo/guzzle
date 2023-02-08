@@ -1,0 +1,10 @@
+[submodule "guzzle_api"]
+	path = guzzle_api
+	url = https://github.com/getchoo/guzzle_api.git
+[submodule "src/modpack"]
+	path = src/modpack
+	url = https://github.com/getchoo/modpack.git
+[submodule "src/server-modpack"]
+	path = src/server-modpack
+	url = https://github.com/getchoo/modpack.git
+	branch = server

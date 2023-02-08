@@ -1,0 +1,42 @@
+{
+	email getchoo@tuta.io
+	log {
+		output stdout
+		format console
+	}
+}
+
+(strip-www) {
+	redir https://{args.0}{uri}
+}
+
+(common_domain) {
+	encode gzip
+	handle {
+		try_files {path} {path}/ =404
+	}
+}
+
+(no_embeds) {
+	header /{args.0} X-Frame-Options DENY
+}
+
+(container_proxy) {
+	handle_path /{args.0}/* {
+		reverse_proxy {args.1}
+	}
+}
+
+www.{$DOMAIN:localhost} {
+	import strip-www {$DOMAIN:localhost}
+}
+
+{$DOMAIN:localhost} {
+	root * {$CADDY_ROOT:/var/www}
+	import common_domain
+
+	file_server browse
+
+	import no_embeds lul.html
+	import container_proxy api {$API_HOST:api}:80
+}
