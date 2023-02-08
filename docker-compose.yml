@@ -25,6 +25,7 @@ services:
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:z
       - ./caddy/data:/data:z
+      - ./caddy/logs:/var/log/caddy:z
       - ./src/:/var/www:z
     depends_on: api
   api:

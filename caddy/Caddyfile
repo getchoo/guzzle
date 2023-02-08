@@ -22,6 +22,13 @@
 		rewrite @404 /404.html
 		file_server
 	}
+	log {
+		output file /var/log/caddy/{args.0}-access.log {
+			roll_keep 5
+			roll_keep_for 720h
+		}
+		format console
+	}
 }
 
 (no_embeds) {
@@ -40,7 +47,7 @@ www.{$DOMAIN:localhost} {
 
 {$DOMAIN:localhost} {
 	root * {$CADDY_ROOT:/var/www}
-	import common_domain
+	import common_domain {$DOMAIN:localhost}
 
 	file_server browse
 
