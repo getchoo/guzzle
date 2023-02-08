@@ -1,4 +1,4 @@
-# docker
+# services for guzzle.gay
 networks:
   web:
     external: true

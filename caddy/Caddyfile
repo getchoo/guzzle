@@ -49,7 +49,10 @@ www.{$DOMAIN:localhost} {
 	root * {$CADDY_ROOT:/var/www}
 	import common_domain {$DOMAIN:localhost}
 
-	file_server browse
+	file_server browse {
+		index index.html
+		hide .* LICENSE README.md
+	}
 
 	import no_embeds lul.html
 	import container_proxy api {$API_HOST:api}:80
