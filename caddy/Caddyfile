@@ -56,4 +56,5 @@ www.{$DOMAIN:localhost} {
 
 	import no_embeds lul.html
 	import container_proxy api {$API_HOST:api}:80
+	redir /chris2 /files/chris.webp permanent
 }
