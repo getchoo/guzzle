@@ -15,7 +15,7 @@ services:
     environment:
       API_HOST: "guzzle_api"
       CADDY_ROOT: "/var/www"
-      DOMAIN: "guzzle.gay"
+      DOMAIN: "198.199.68.30"
     networks:
       - web
       - internal
@@ -37,34 +37,34 @@ services:
     container_name: guzzle_api
     networks:
       - internal
-  mc:
-    image: itzg/minecraft-server:java17-alpine
-    container_name: mc
-    environment:
-      EULA: "TRUE"
-      ENABLE_AUTOPAUSE: "TRUE"
-      ENABLE_WHITELIST: "true"
-      ENFORCE_WHITELIST: "true"
-      ICON: "https://guzzle.gay/files/mc-server-icon.png"
-      MAX_TICK_TIME: "-1"
-      MEMORY: ${MC_MEMORY}
-      MOTD: ${MC_MOTD}
-      OPS: ${MC_OPS}
-      OVERRIDE_SERVER_PROPERTIES: "TRUE"
-      PACKWIZ_URL: "https://guzzle.gay/server-modpack/pack.toml"
-      RCON_PASSWORD: ${RCON_PW}
-      TYPE: ${MC_SERVER}
-      USE_AIKAR_FLAGS: true
-      VERSION: ${MC_VERSION}
-      WHITELIST: ${MC_WHITELIST}
-    network:
-      - web
-    ports:
-      - 25565:25565
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./mc/config:/config:z
-      - ./mc/data:/data:z
-      - ./mc/world:/data/world:z
+  #mc:
+  #  image: itzg/minecraft-server:java17-alpine
+  #  container_name: mc
+  #  environment:
+  #    EULA: "TRUE"
+  #    ENABLE_AUTOPAUSE: "TRUE"
+  #    ENABLE_WHITELIST: "true"
+  #    ENFORCE_WHITELIST: "true"
+  #    ICON: "https://guzzle.gay/files/mc-server-icon.png"
+  #    MAX_TICK_TIME: "-1"
+  #    MEMORY: ${MC_MEMORY}
+  #    MOTD: ${MC_MOTD}
+  #    OPS: ${MC_OPS}
+  #    OVERRIDE_SERVER_PROPERTIES: "TRUE"
+  #    PACKWIZ_URL: "https://guzzle.gay/server-modpack/pack.toml"
+  #    RCON_PASSWORD: ${RCON_PW}
+  #    TYPE: ${MC_SERVER}
+  #    USE_AIKAR_FLAGS: true
+  #    VERSION: ${MC_VERSION}
+  #    WHITELIST: ${MC_WHITELIST}
+  #  network:
+  #    - web
+  #  ports:
+  #    - 25565:25565
+  #  restart: unless-stopped
+  #  stdin_open: true
+  #  tty: true
+  #  volumes:
+  #    - ./mc/config:/config:z
+  #    - ./mc/data:/data:z
+  #    - ./mc/world:/data/world:z

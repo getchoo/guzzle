@@ -4,6 +4,7 @@
 		output stdout
 		format console
 	}
+	auto_https disable_redirects
 }
 
 (strip-www) {
